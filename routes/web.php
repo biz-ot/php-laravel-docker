@@ -18,3 +18,17 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/login', function () {
+    return view('login', [
+        'sitekey' => 'hoge',
+    ]);
+});
+
+Route::get('/mypage', function () {
+    return view('mypage');
+});
+
+Route::get('/loginerror', function () {
+    return view('loginerror');
+});
