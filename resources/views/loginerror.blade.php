@@ -10,9 +10,13 @@
             ログインできませんでした。。。
             <br>
             <br>
+            @isset($method)
             method:&nbsp;{{{ $method }}}
             <br>
+            @endisset
+            @isset($adcode)
             adcode:&nbsp;{{{ $adcode }}}
             <br>
+            @endisset
     </body>
 </html>
