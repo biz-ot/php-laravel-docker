@@ -15,8 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home', 'HomeController@index')->name('home');
-
 Route::get('/login', function () {
     return view('login', [
         'sitekey' => 'hoge',
@@ -30,5 +28,3 @@ Route::get('/mypage', function () {
 Route::get('/loginerror', function () {
     return view('loginerror');
 });
-
-Auth::routes();

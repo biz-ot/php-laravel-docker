@@ -20,14 +20,15 @@ class ErrorController extends Controller
      */
     public function store(Request $request)
     {
-        $url = 'http://localhost/SocialTest/';
-        if ($request->input('adcode') === 'google') {
-            $url = 'http://localhost/SocialTest/login';
-        } elseif ($request->input('adcode') === 'mypage') {
-            $url = 'http://localhost/SocialTest/loginerror';
-        }
-
-        return redirect()->away($url, $status = 302);
+        //return redirect('loginerror');
+        /*
+        return redirect()->route('/loginerror', [
+            'method' => $request->method(),
+            'adcode' => $request->input('adcode')
+        ]);
+        */
+        $url = 'https://socialtest.onrender.com/loginerror?method=' . $request->method() . '&adcode=' . $request->input('adcode');
+        return redirect()->away($url);
     }
 
     /**
