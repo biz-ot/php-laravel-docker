@@ -15,8 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/login', function () {
@@ -32,3 +30,5 @@ Route::get('/mypage', function () {
 Route::get('/loginerror', function () {
     return view('loginerror');
 });
+
+Auth::routes();

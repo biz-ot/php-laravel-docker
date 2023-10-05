@@ -20,11 +20,11 @@ class ErrorController extends Controller
      */
     public function store(Request $request)
     {
-        $url = 'http://localhost/SocialLoginTest/';
+        $url = 'http://localhost/SocialTest/';
         if ($request->input('adcode') === 'google') {
-            $url = 'http://localhost/SocialLoginTest/login';
+            $url = 'http://localhost/SocialTest/login';
         } elseif ($request->input('adcode') === 'mypage') {
-            $url = 'http://localhost/SocialLoginTest/loginerror';
+            $url = 'http://localhost/SocialTest/loginerror';
         }
 
         return redirect()->away($url, $status = 302);
