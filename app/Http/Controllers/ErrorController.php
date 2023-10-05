@@ -27,8 +27,12 @@ class ErrorController extends Controller
             'adcode' => $request->input('adcode')
         ]);
         */
-        $url = 'https://socialtest.onrender.com/loginerror?method=' . $request->method() . '&adcode=' . $request->input('adcode');
-        return redirect()->away($url);
+        //$url = 'https://socialtest.onrender.com/loginerror?method=' . $request->method() . '&adcode=' . $request->input('adcode');
+        //return redirect()->away($url);
+        return view('loginerror', [
+            'method' => $request->method(),
+            'adcode' => $request->input('adcode')
+        ]);
     }
 
     /**

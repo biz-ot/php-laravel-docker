@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Route::get('/login', function () {
     return view('login', [
-        'sitekey' => 'hoge',
+        'sitekey' => 'ttB5hBrBuc99',
     ]);
 });
 
