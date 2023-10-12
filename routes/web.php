@@ -18,6 +18,7 @@ Route::get('/', function () {
 Route::get('/login', function () {
     return view('login', [
         'sitekey' => 'ttB5hBrBuc99',
+        'snsdomain' => 'soc.socialloginttest.xyz',
     ]);
 });
 

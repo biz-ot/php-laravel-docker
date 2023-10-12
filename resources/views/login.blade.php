@@ -37,8 +37,8 @@
     </head>
     <body>
         <h1>ソーシャルログイン</h1>
-        <a href="https://socialtest.ddns.net/auth/{{{ $sitekey }}}/google/redirect?AC=google">GoogleでログインしてGoogleへ</a><br>
-        <a href="https://socialtest.ddns.net/auth/{{{ $sitekey }}}/google/redirect?AC=mypage">Googleでログインしてマイページへ</a><br>
+        <a href="https://{{{ $snsdomain }}}/auth/{{{ $sitekey }}}/google/redirect?AC=google">GoogleでログインしてGoogleへ</a><br>
+        <a href="https://{{{ $snsdomain }}}/auth/{{{ $sitekey }}}/google/redirect?AC=mypage">Googleでログインしてマイページへ</a><br>
 
         <hr>
         <h1>キックバックテスト</h1>
