@@ -41,8 +41,7 @@ class CallbackController extends Controller
                 'status' => 200,
                 'redirect_url' => $url,
             ]
-        );
-            /*->cookie('provider_user_id', $provider_user_id, $minutes
+        )->cookie('provider_user_id', $provider_user_id, $minutes
         )->cookie('provider_user_name', $provider_user_name, $minutes
         )->cookie('provider_user_email', $provider_user_email, $minutes
         )->cookie('provider_user_gender', $provider_user_gender, $minutes
@@ -50,7 +49,7 @@ class CallbackController extends Controller
         )->cookie('adcode', $adcode, $minutes
         )->cookie('status', $status, $minutes
         )->cookie('provider_row', $provider_row, $minutes
-        );*/
+        );
     }
 
     /**
