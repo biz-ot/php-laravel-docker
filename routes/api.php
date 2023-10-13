@@ -21,7 +21,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::post('/callback', [CallbackController::class, 'store']);
-Route::post('/cookie', [CallbackController::class, 'index']);
 
 Route::get('/error', [ErrorController::class, 'store']);
 Route::post('/error', [ErrorController::class, 'store']);
