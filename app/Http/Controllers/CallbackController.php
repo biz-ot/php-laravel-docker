@@ -11,8 +11,7 @@ class CallbackController extends Controller
      */
     public function index()
     {
-        //
-        return '';
+        return response()->view('mypage')->cookie('provider_user_id', 'hogehoge', 3);
     }
 
     /**

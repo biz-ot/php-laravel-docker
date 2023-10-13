@@ -21,6 +21,7 @@
             <br>
             <hr>
             <table border=0 cellpadding=2>
+            <tr><td>provider_user_id(Cookie):&nbsp;</td><td>{{ Cookie::get('provider_user_id'); }}</td></tr>
             <tr><td>provider_user_id:&nbsp;</td><td>{{{ $provider_user_id }}}</td></tr>
             <tr><td>provider_user_name:&nbsp;</td><td>{{{ $provider_user_name }}}</td></tr>
             <tr><td>provider_user_email:&nbsp;</td><td>{{{ $provider_user_email }}}</td></tr>
