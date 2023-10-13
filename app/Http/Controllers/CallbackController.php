@@ -20,38 +20,62 @@ class CallbackController extends Controller
      */
     public function store(Request $request)
     {
-        if (env('APP_ENV') == 'local') {
-            $url = 'http://localhost/SocialTest/';
-        } else {
-            $url = 'https://www.socialloginttest.xyz/';
-        }
+        $provider_user_id = '';
+        $provider_user_name = '';
+        $provider_user_email = '';
+        $provider_user_gender = '';
+        $provider_id = '';
+        $adcode = '';
+        $status = '';
+        $provider_row = '';
 
+        $url = 'https://www.socialloginttest.xyz/';
         if ($request->input('adcode') === 'google') {
             $url = 'https://www.google.com/';
         } elseif ($request->input('adcode') === 'mypage') {
-            $url .= 'mypage';
+            $url = 'https://www.socialloginttest.xyz/mypage';
+
+            if ($request->has('provider_user_id')) {
+                $provider_user_id = $request->input('provider_user_id');
+            }
+            if ($request->has('provider_user_name')) {
+                $provider_user_name = $request->input('provider_user_name');
+            }
+            if ($request->has('provider_user_email')) {
+                $provider_user_email = $request->input('provider_user_email');
+            }
+            if ($request->has('provider_user_gender')) {
+                $provider_user_gender = $request->input('provider_user_gender');
+            }
+            if ($request->has('provider_id')) {
+                $provider_id = $request->input('provider_id');
+            }
+            if ($request->has('adcode')) {
+                $adcode = $request->input('adcode');
+            }
+            if ($request->has('status')) {
+                $status = $request->input('status');
+            }
+            if ($request->has('provider_row')) {
+                $provider_row = $request->input('provider_row');
+            }
         }
 
-        $response = response()->json(
+        $minutes = 1;
+        return response()->json(
             [
                 'status' => 200,
                 'redirect_url' => $url,
             ]
+        )->cookie('provider_user_id', $provider_user_id, $minutes
+        )->cookie('provider_user_name', $provider_user_name, $minutes
+        )->cookie('provider_user_email', $provider_user_email, $minutes
+        )->cookie('provider_user_gender', $provider_user_gender, $minutes
+        )->cookie('provider_id', $provider_id, $minutes
+        )->cookie('adcode', $adcode, $minutes
+        )->cookie('status', $status, $minutes
+        )->cookie('provider_row', $provider_row, $minutes
         );
-
-        if ($request->input('adcode') === 'mypage') {
-            $minutes = 1;
-            Cookie::queue('provider_user_id', $request->input('provider_user_id'), $minutes);
-            Cookie::queue('provider_user_name', $request->input('provider_user_name'), $minutes);
-            Cookie::queue('provider_user_email', $request->input('provider_user_email'), $minutes);
-            Cookie::queue('provider_user_gender', $request->input('provider_user_gender'), $minutes);
-            Cookie::queue('provider_id', $request->input('provider_id'), $minutes);
-            Cookie::queue('adcode', $request->input('adcode'), $minutes);
-            Cookie::queue('status', $request->input('status'), $minutes);
-            Cookie::queue('provider_row', $request->input('provider_row'), $minutes);
-        }
-
-        return $response;
     }
 
     /**
