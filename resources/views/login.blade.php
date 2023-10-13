@@ -33,11 +33,6 @@
                     "provider_row.address:" + json['provider_row']['address']+ "\n" +
                     "provider_row.tel:" + json['provider_row']['tel']);
             }
-            function sendck(){
-                var form = document.getElementById("callbackForm");
-                form.action = "{{ url('api/cookie') }}";
-                form.submit();
-            }
         </script>
     </head>
     <body>
@@ -62,8 +57,6 @@
             </table>
             <br>
             <input type="button" value="確認" onclick="check();">
-            <span style="width: 30px;">
-            <input type="button" value="test" onclick="sendck();">
             <span style="width: 30px;">
             <input type="submit" name="送信" >
         </form>

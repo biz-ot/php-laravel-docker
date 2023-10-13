@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Support\Facades\Cookie;
+//use Illuminate\Support\Facades\Cookie;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,15 +25,35 @@ Route::get('/login', function () {
 });
 
 Route::get('/mypage', function () {
+    $provider_user_id = '';
+    $provider_user_name = '';
+    $provider_user_email = '';
+    $provider_user_gender = '';
+    $provider_id = '';
+    $adcode = '';
+    $status = '';
+    $provider_row = '';
+
+    /*
+    $provider_user_id = Cookie::get('provider_user_id');
+    $provider_user_name = Cookie::get('provider_user_name');
+    $provider_user_email = Cookie::get('provider_user_email');
+    $provider_user_gender = Cookie::get('provider_user_gender');
+    $provider_id = Cookie::get('provider_id');
+    $adcode = Cookie::get('adcode');
+    $status = Cookie::get('status');
+    $provider_row = Cookie::get('provider_row');
+    */
+
     return view('mypage', [
-        'provider_user_id' => Cookie::get('provider_user_id'),
-        'provider_user_name' => Cookie::get('provider_user_name'),
-        'provider_user_email' => Cookie::get('provider_user_email'),
-        'provider_user_gender' => Cookie::get('provider_user_gender'),
-        'provider_id' => Cookie::get('provider_id'),
-        'adcode' => Cookie::get('adcode'),
-        'status' => Cookie::get('status'),
-        'provider_row' => Cookie::get('provider_row'),
+        'provider_user_id' => $provider_user_id,
+        'provider_user_name' => $provider_user_name,
+        'provider_user_email' => $provider_user_email,
+        'provider_user_gender' => $provider_user_gender,
+        'provider_id' => $provider_id,
+        'adcode' => $adcode,
+        'status' => $status,
+        'provider_row' => $provider_row,
     ]);
 });
 
