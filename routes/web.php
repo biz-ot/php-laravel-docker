@@ -33,28 +33,28 @@ Route::get('/mypage', function (Request $request) {
     $provider_row = '';
 
     if ($request->hasCookie('provider_user_id')) {
-        $provider_user_id = Cookie:get('provider_user_id');
+        $provider_user_id = Cookie::get('provider_user_id');
     }
     if ($request->hasCookie('provider_user_name')) {
-        $provider_user_id = Cookie:get('provider_user_name');
+        $provider_user_id = Cookie::get('provider_user_name');
     }
     if ($request->hasCookie('provider_user_email')) {
-        $provider_user_id = Cookie:get('provider_user_email');
+        $provider_user_id = Cookie::get('provider_user_email');
     }
     if ($request->hasCookie('provider_user_gender')) {
-        $provider_user_id = Cookie:get('provider_user_gender');
+        $provider_user_id = Cookie::get('provider_user_gender');
     }
     if ($request->hasCookie('provider_id')) {
-        $provider_user_id = Cookie:get('provider_id');
+        $provider_user_id = Cookie::get('provider_id');
     }
     if ($request->hasCookie('adcode')) {
-        $provider_user_id = Cookie:get('adcode');
+        $provider_user_id = Cookie::get('adcode');
     }
     if ($request->hasCookie('status')) {
-        $provider_user_id = Cookie:get('status');
+        $provider_user_id = Cookie::get('status');
     }
     if ($request->hasCookie('provider_row')) {
-        $provider_user_id = Cookie:get('provider_row');
+        $provider_user_id = Cookie::get('provider_row');
     }
 
     return view('mypage', [
