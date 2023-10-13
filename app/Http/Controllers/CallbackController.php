@@ -40,14 +40,15 @@ class CallbackController extends Controller
         );
 
         if ($request->input('adcode') === 'mypage') {
-            $response->cookie('provider_user_id', $request->input('provider_user_id'), 1);
-            $response->cookie('provider_user_name', $request->input('provider_user_name'), 1);
-            $response->cookie('provider_user_email', $request->input('provider_user_email'), 1);
-            $response->cookie('provider_user_gender', $request->input('provider_user_gender'), 1);
-            $response->cookie('provider_id', $request->input('provider_id'), 1);
-            $response->cookie('adcode', $request->input('adcode'), 1);
-            $response->cookie('status', $request->input('status'), 1);
-            $response->cookie('provider_row', $request->input('provider_row'), 1);
+            $minutes = 1;
+            Cookie::queue('provider_user_id', $request->input('provider_user_id'), $minutes);
+            Cookie::queue('provider_user_name', $request->input('provider_user_name'), $minutes);
+            Cookie::queue('provider_user_email', $request->input('provider_user_email'), $minutes);
+            Cookie::queue('provider_user_gender', $request->input('provider_user_gender'), $minutes);
+            Cookie::queue('provider_id', $request->input('provider_id'), $minutes);
+            Cookie::queue('adcode', $request->input('adcode'), $minutes);
+            Cookie::queue('status', $request->input('status'), $minutes);
+            Cookie::queue('provider_row', $request->input('provider_row'), $minutes);
         }
 
         return $response;
