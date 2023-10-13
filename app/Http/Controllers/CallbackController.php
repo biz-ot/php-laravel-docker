@@ -35,30 +35,14 @@ class CallbackController extends Controller
         } elseif ($request->input('adcode') === 'mypage') {
             $url = 'https://www.socialloginttest.xyz/mypage';
 
-            if ($request->has('provider_user_id')) {
-                $provider_user_id = $request->input('provider_user_id');
-            }
-            if ($request->has('provider_user_name')) {
-                $provider_user_name = $request->input('provider_user_name');
-            }
-            if ($request->has('provider_user_email')) {
-                $provider_user_email = $request->input('provider_user_email');
-            }
-            if ($request->has('provider_user_gender')) {
-                $provider_user_gender = $request->input('provider_user_gender');
-            }
-            if ($request->has('provider_id')) {
-                $provider_id = $request->input('provider_id');
-            }
-            if ($request->has('adcode')) {
-                $adcode = $request->input('adcode');
-            }
-            if ($request->has('status')) {
-                $status = $request->input('status');
-            }
-            if ($request->has('provider_row')) {
-                $provider_row = $request->input('provider_row');
-            }
+            $provider_user_id = $request->input('provider_user_id');
+            $provider_user_name = $request->input('provider_user_name');
+            $provider_user_email = $request->input('provider_user_email');
+            $provider_user_gender = $request->input('provider_user_gender');
+            $provider_id = $request->input('provider_id');
+            $adcode = $request->input('adcode');
+            $status = $request->input('status');
+            $provider_row = $request->input('provider_row');
         }
 
         $minutes = 1;
