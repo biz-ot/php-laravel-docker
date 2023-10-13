@@ -19,29 +19,20 @@ class CallbackController extends Controller
      */
     public function store(Request $request)
     {
-        $provider_user_id = '';
-        $provider_user_name = '';
-        $provider_user_email = '';
-        $provider_user_gender = '';
-        $provider_id = '';
-        $adcode = '';
-        $status = '';
-        $provider_row = '';
+        $provider_user_id = $request->input('provider_user_id', '');
+        $provider_user_name = $request->input('provider_user_name', '');
+        $provider_user_email = $request->input('provider_user_email', '');
+        $provider_user_gender = $request->input('provider_user_gender', '');
+        $provider_id = $request->input('provider_id', '');
+        $adcode = $request->input('adcode', '');
+        $status = $request->input('status', '');
+        $provider_row = $request->input('provider_row', '');
 
         $url = 'https://www.socialloginttest.xyz/';
         if ($request->input('adcode') === 'google') {
             $url = 'https://www.google.com/';
         } elseif ($request->input('adcode') === 'mypage') {
             $url = 'https://www.socialloginttest.xyz/mypage';
-
-            $provider_user_id = $request->input('provider_user_id');
-            $provider_user_name = $request->input('provider_user_name');
-            $provider_user_email = $request->input('provider_user_email');
-            $provider_user_gender = $request->input('provider_user_gender');
-            $provider_id = $request->input('provider_id');
-            $adcode = $request->input('adcode');
-            $status = $request->input('status');
-            $provider_row = $request->input('provider_row');
         }
 
         $minutes = 1;

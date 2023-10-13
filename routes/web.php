@@ -1,6 +1,6 @@
 <?php
 
-//use Illuminate\Support\Facades\Cookie;
+use Illuminate\Support\Facades\Cookie;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,16 +34,30 @@ Route::get('/mypage', function () {
     $status = '';
     $provider_row = '';
 
-    /*
-    $provider_user_id = Cookie::get('provider_user_id');
-    $provider_user_name = Cookie::get('provider_user_name');
-    $provider_user_email = Cookie::get('provider_user_email');
-    $provider_user_gender = Cookie::get('provider_user_gender');
-    $provider_id = Cookie::get('provider_id');
-    $adcode = Cookie::get('adcode');
-    $status = Cookie::get('status');
-    $provider_row = Cookie::get('provider_row');
-    */
+    if (Cookie::has('provider_user_id')) {
+        $provider_user_id = Cookie::get('provider_user_id');
+    }
+    if (Cookie::has('provider_user_name')) {
+        $provider_user_name = Cookie::get('provider_user_name');
+    }
+    if (Cookie::has('provider_user_email')) {
+        $provider_user_email = Cookie::get('provider_user_email');
+    }
+    if (Cookie::has('provider_user_gender')) {
+        $provider_user_gender = Cookie::get('provider_user_gender');
+    }
+    if (Cookie::has('provider_id')) {
+        $provider_id = Cookie::get('provider_id');
+    }
+    if (Cookie::has('adcode')) {
+        $adcode = Cookie::get('adcode');
+    }
+    if (Cookie::has('status')) {
+        $status = Cookie::get('status');
+    }
+    if (Cookie::has('provider_row')) {
+        $provider_row = Cookie::get('provider_row');
+    }
 
     return view('mypage', [
         'provider_user_id' => $provider_user_id,
