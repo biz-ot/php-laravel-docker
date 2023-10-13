@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cookie;
 
 class CallbackController extends Controller
 {
@@ -35,20 +36,21 @@ class CallbackController extends Controller
             $url = 'https://www.socialloginttest.xyz/mypage';
         }
 
-        $minutes = 1;
+        $minutes = 2;
+        Cookie::queue('provider_user_id', $provider_user_id, $minutes);
+        Cookie::queue('provider_user_name', $provider_user_name, $minutes);
+        Cookie::queue('provider_user_email', $provider_user_email, $minutes);
+        Cookie::queue('provider_user_gender', $provider_user_gender, $minutes);
+        Cookie::queue('provider_id', $provider_id, $minutes);
+        Cookie::queue('adcode', $adcode, $minutes);
+        Cookie::queue('status', $status, $minutes);
+        Cookie::queue('provider_row', $provider_row, $minutes);
+
         return response()->json(
             [
                 'status' => 200,
                 'redirect_url' => $url,
             ]
-        )->cookie('provider_user_id', $provider_user_id, $minutes
-        )->cookie('provider_user_name', $provider_user_name, $minutes
-        )->cookie('provider_user_email', $provider_user_email, $minutes
-        )->cookie('provider_user_gender', $provider_user_gender, $minutes
-        )->cookie('provider_id', $provider_id, $minutes
-        )->cookie('adcode', $adcode, $minutes
-        )->cookie('status', $status, $minutes
-        )->cookie('provider_row', $provider_row, $minutes
         );
     }
 
