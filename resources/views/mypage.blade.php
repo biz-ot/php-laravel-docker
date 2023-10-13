@@ -16,6 +16,20 @@
         </style>
     </head>
     <body>
-            ようこそマイページへ！
+            ようこそマイページへ！<br>
+
+            <br>
+            <hr>
+            <table border=0 cellpadding=2>
+            <tr><td>provider_user_id:&nbsp;</td><td>{{ Cookie:get('provider_user_id'); }}</td></tr>
+            <tr><td>provider_user_name:&nbsp;</td><td>{{ Cookie:get('provider_user_name'); }}</td></tr>
+            <tr><td>provider_user_email:&nbsp;</td><td>{{ Cookie:get('provider_user_email'); }}</td></tr>
+            <tr><td>provider_user_gender:&nbsp;</td><td>{{ Cookie:get('provider_user_gender'); }}</td></tr>
+            <tr><td>provider_id:&nbsp;</td><td>{{ Cookie:get('provider_id'); }}</td></tr>
+            <tr><td>adcode:&nbsp;</td><td>{{ Cookie:get('adcode'); }}</td></tr>
+            <tr><td>status:&nbsp;</td><td>{{ Cookie:get('status'); }}</td></tr>
+            <tr><td>provider_row:&nbsp;</td><td><textarea>{{ Cookie:get('provider_row'); }}</textarea></td></tr>
+            </table>
+
     </body>
 </html>

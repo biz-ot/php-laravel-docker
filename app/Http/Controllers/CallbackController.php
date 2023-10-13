@@ -20,19 +20,32 @@ class CallbackController extends Controller
      */
     public function store(Request $request)
     {
-        $url = 'https://socialloginttest.xyz/';
+        $url = 'https://www.socialloginttest.xyz/';
         if ($request->input('adcode') === 'google') {
             $url = 'https://www.google.com/';
         } elseif ($request->input('adcode') === 'mypage') {
-            $url = 'https://socialloginttest.xyz/mypage';
+            $url = 'https://www.socialloginttest.xyz/mypage';
         }
 
-        return response()->json(
+        $response = response()->json(
             [
                 'status' => 200,
                 'redirect_url' => $url,
             ]
         );
+
+        if ($request->input('adcode') === 'mypage') {
+            $response->cookie('provider_user_id', $request->input('provider_user_id'), 1);
+            $response->cookie('provider_user_name', $request->input('provider_user_name'), 1);
+            $response->cookie('provider_user_email', $request->input('provider_user_email'), 1);
+            $response->cookie('provider_user_gender', $request->input('provider_user_gender'), 1);
+            $response->cookie('provider_id', $request->input('provider_id'), 1);
+            $response->cookie('adcode', $request->input('adcode'), 1);
+            $response->cookie('status', $request->input('status'), 1);
+            $response->cookie('provider_row', $request->input('provider_row'), 1);
+        }
+
+        return $response;
     }
 
     /**
