@@ -20,11 +20,16 @@ class CallbackController extends Controller
      */
     public function store(Request $request)
     {
-        $url = 'https://www.socialloginttest.xyz/';
+        if (env('APP_ENV') == 'local') {
+            $url = 'http://localhost/SocialTest/';
+        } else {
+            $url = 'https://www.socialloginttest.xyz/';
+        }
+
         if ($request->input('adcode') === 'google') {
             $url = 'https://www.google.com/';
         } elseif ($request->input('adcode') === 'mypage') {
-            $url = 'https://www.socialloginttest.xyz/mypage';
+            $url .= 'mypage';
         }
 
         $response = response()->json(
